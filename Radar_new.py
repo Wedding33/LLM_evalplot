@@ -1,6 +1,6 @@
-from mtbench_radar import *
-from alignment_radar import *
-from scatter_plot import *
+from func.mtbench_radar import *
+from func.alignment_radar import *
+from func.scatter_plot import *
 from config import *
 
 if __name__ == "__main__":
