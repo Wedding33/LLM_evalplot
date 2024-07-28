@@ -13,8 +13,8 @@ def gen_MATHVISTA(csv):
     categories = list(data.iloc[:, 0])  # 提取第一列数据，作为类别
     values = data.iloc[:, 5].astype(float)  # 取第二列数据，将其转换为浮点数
 
-    print(categories)
-    print(values)
+    # print(categories)
+    # print(values)
 
     # 按数值大小排序并创建颜色映射
     sorted_indices = np.argsort(-values)  # 按降序排列

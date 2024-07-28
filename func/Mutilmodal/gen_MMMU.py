@@ -14,7 +14,7 @@ def gen_MMMU(csv):
     categories = list(data.columns[1:])
     values = data.iloc[1, 1:].astype(float)  # 取第一行数据，将其转换为浮点数
 
-    print(values)
+    # print(values)
 
     # 按数值大小排序并创建颜色映射
     sorted_indices = np.argsort(-values)  # 按降序排列
