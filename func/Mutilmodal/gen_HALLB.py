@@ -13,8 +13,8 @@ def gen_HALLB(csv):
     categories = list(data.iloc[:, 0])  # 提取第一列数据，作为类别
     values = data.iloc[:, 1].astype(float)  # 取第二列数据，将其转换为浮点数
 
-    print(categories)
-    print(values)
+    # print(categories)
+    # print(values)
 
     # 按数值大小排序并创建颜色映射
     sorted_indices = np.argsort(-values)  # 按降序排列
@@ -29,7 +29,7 @@ def gen_HALLB(csv):
     bars = plt.barh(sorted_categories, sorted_values, color=colors)
     plt.xlabel('Accuracy')
     plt.title('Accuracy of Different Categories')
-    plt.xlim(0, 1)  # 设置x轴范围为0到1
+    plt.xlim(0, 100)  # 设置x轴范围为0到1
     plt.gca().invert_yaxis()  # 反转 y 轴，使最高的类别在顶部
 
     # 在每个条形后面添加对应的数值

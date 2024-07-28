@@ -11,8 +11,8 @@ def gen_MMBench_CN(csv):
     data = pd.read_csv(csv)
 
     # 提取数据
-    categories = list(data.columns[2:])
-    values = data.iloc[0, 2:].astype(float)  # 取第一行数据，将其转换为浮点数
+    categories = list(data.columns[1:])
+    values = data.iloc[0, 1:].astype(float)  # 取第一行数据，将其转换为浮点数
 
     # 按数值大小排序并创建颜色映射
     sorted_indices = np.argsort(-values)  # 按降序排列
