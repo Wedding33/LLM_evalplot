@@ -19,8 +19,11 @@ def gen_AI2D(csv):
     sorted_values = values[sorted_indices]
     sorted_categories = [categories[i] for i in sorted_indices]
 
-    # 创建自定义颜色映射，越接近1越红，越接近0越蓝
+    # 创建自定义颜色映射
     colors = [(0.3, 1, 0.6, i) for i in sorted_values]  # RGBA格式，透明度为数值大小
+    for i in range(len(sorted_indices)):
+        if sorted_categories[i] == "Overall":
+            colors[i]=(0.5, 0.8, 0.9, sorted_values[i])
 
     # 创建条形图
     plt.figure(figsize=(12, 6))

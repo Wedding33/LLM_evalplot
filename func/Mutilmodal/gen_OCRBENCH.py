@@ -14,8 +14,8 @@ def gen_OCRBENCH(file_path):
     # 提取数据
     categories = list(data.keys())
     values = list(data.values())
-    categories.pop()
-    values.pop()
+    categories.pop(-2)
+    values.pop(-2)
 
     # print(categories)
     # print(values)
@@ -27,14 +27,17 @@ def gen_OCRBENCH(file_path):
     sorted_categories = [categories[i] for i in sorted_indices]
 
     # 创建自定义颜色映射，越接近1越红，越接近0越蓝
-    colors = [(0.3, 1, 0.6, i/sum(values)) for i in sorted_values]  # RGBA格式，透明度为数值大小
+    colors = [(0.3, 1, 0.6, (len(sorted_indices)-i)/len(sorted_indices)) for i in sorted_indices]  # RGBA格式，透明度为数值大小
+    for i in range(len(sorted_indices)):
+        if sorted_categories[i] == "Final Score Norm":
+            colors[i]=(0.5, 0.8, 0.9, (len(sorted_indices)-sorted_indices[i])/len(sorted_indices))
 
     # 创建条形图
     plt.figure(figsize=(12, 6))
     bars = plt.barh(sorted_categories, sorted_values, color=colors)
     plt.xlabel('Accuracy')
     plt.title('Accuracy of Different Categories')
-    plt.xlim(0, 1000)  # 设置x轴范围为0到1
+    plt.xlim(0, 400)  # 设置x轴范围为0到1
     plt.gca().invert_yaxis()  # 反转 y 轴，使最高的类别在顶部
 
     # 在每个条形后面添加对应的数值

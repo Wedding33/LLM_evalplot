@@ -23,6 +23,9 @@ def gen_HALLB(csv):
 
     # 创建自定义颜色映射，越接近1越红，越接近0越蓝
     colors = [(0.3, 1, 0.6, i/100) for i in sorted_values]  # RGBA格式，透明度为数值大小
+    for i in range(len(sorted_indices)):
+        if sorted_categories[i] == "Overall":
+            colors[i]=(0.5, 0.8, 0.9, sorted_values[i]/100)
 
     # 创建条形图
     plt.figure(figsize=(12, 6))
