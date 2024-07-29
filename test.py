@@ -34,7 +34,7 @@ def gen_MMBench_CN(csv):
         plt.text(bar.get_width(), bar.get_y() + bar.get_height() / 2, f'{value:.2f}', ha='left', va='center')
 
     # 创建结果目录
-    timestamp = time.strftime("%Y%m%d%H%M%S")
+    timestamp = time.strftime("%Y%m%d%H%M")
     csv_folder = os.path.dirname("./data/MarsV/MarsV_MMBench_DEV_CN_V11_acc.csv")
     result_folder = os.path.join("./result", os.path.basename(csv_folder) + "_" + timestamp)
 
